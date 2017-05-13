@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+* {
+  font-family: "Roboto Slab", serif; }
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  width: 85%;
+  align-items: flex-start;
+  margin: 0 auto;
+  color: #303030; }
+
+.state {
+  width: 165px;
+  margin: 15px; }
+  .state h3 {
+    text-transform: uppercase; }
+  .state a {
+    text-decoration: none;
+    color: #303030; }
+  .state a:visited {
+    color: #303030; }
+
+.heading {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center; }
+
+.national-pk i {
+  color: #5d935f; }
+.national-pk a:hover {
+  color: #5d935f; }
+
+.state-pk i {
+  color: #b27c25; }
+.state-pk a:hover {
+  color: #b27c25; }
+
+.city-pk i {
+  color: #d36d56; }
+.city-pk a:hover {
+  color: #d36d56; }
+
+/*# sourceMappingURL=parks.css.map */

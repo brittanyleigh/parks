@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+$font-stack: 'Roboto Slab', serif;
+$dk-gray: #303030;
+$natl-color: #5d935f;
+$state-color: #b27c25;
+$city-color: #d36d56;	
+
+* {
+	font-family: $font-stack;
+}
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  width: 85%;
+  align-items: flex-start;
+  margin: 0 auto;
+  color: $dk-gray;
+}
+.state {
+	width: 165px;
+	margin: 15px;
+	h3 {
+		text-transform: uppercase;
+	}
+	a {
+		text-decoration: none;
+		color: $dk-gray;
+	}
+	a:visited {
+		color: $dk-gray;
+	}
+
+}
+.heading {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+@mixin pk-colors($color){
+	i {
+		color: $color;
+	}
+	a:hover {
+		color: $color;
+	}
+}
+.national-pk {
+	@include pk-colors($natl-color);
+}
+.state-pk {
+	@include pk-colors($state-color);
+}
+.city-pk {
+	@include pk-colors($city-color);
+}
