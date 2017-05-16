@@ -28,203 +28,203 @@
 		</h4></div>
 	</div>
 	<div class="list">
-		<div id="Alabama" class="state">
+		<div id="Alabama" class="state hidden">
 			<h3>Alabama <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Alabama"); ?>
 		</div>
-		<div id="Alaska" class="state">
+		<div id="Alaska" class="state hidden">
 			<h3>Alaska <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Alaska"); ?>
 		</div>
-		<div id="Arizona" class="state">
+		<div id="Arizona" class="state hidden">
 			<h3>Arizona <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Arizona"); ?>
 		</div>
-		<div id="Arkansas" class="state">
+		<div id="Arkansas" class="state hidden">
 			<h3>Arkansas <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Arkansas"); ?>
 		</div>
-		<div id="California" class="state">
+		<div id="California" class="state hidden">
 			<h3>California <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("California"); ?>
 		</div>
-		<div id="Colorado" class="state">
+		<div id="Colorado" class="state hidden">
 			<h3>Colorado <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Colorado"); ?>
 		</div>
-		<div id="Connecticut" class="state">
+		<div id="Connecticut" class="state hidden">
 			<h3>Connecticut <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Connecticut"); ?>
 		</div>
-		<div id="Delaware" class="state">
+		<div id="Delaware" class="state hidden">
 			<h3>Delaware <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Delaware"); ?>
 		</div>
-		<div id="Florida" class="state">
+		<div id="Florida" class="state hidden">
 			<h3>Florida <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Florida"); ?>
 		</div>
-		<div id="Georgia" class="state">
+		<div id="Georgia" class="state hidden">
 			<h3>Georgia <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Georgia"); ?>
 		</div>
-		<div id="Hawaii" class="state">
+		<div id="Hawaii" class="state hidden">
 			<h3>Hawaii <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Hawaii"); ?>
 		</div>
-		<div id="Idaho" class="state">
+		<div id="Idaho" class="state hidden">
 			<h3>Idaho <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Idaho"); ?>
 		</div>
-		<div id="Illinois" class="state">
+		<div id="Illinois" class="state hidden">
 			<h3>Illinois <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Illinois"); ?>
 		</div>
-		<div id="Indiana" class="state">
+		<div id="Indiana" class="state hidden">
 			<h3>Indiana <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Indiana"); ?>
 		</div>
-		<div id="Iowa" class="state">
+		<div id="Iowa" class="state hidden">
 			<h3>Iowa <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Iowa"); ?>
 		</div>
-		<div id="Kansas" class="state">
+		<div id="Kansas" class="state hidden">
 			<h3>Kansas <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Kansas"); ?>
 		</div>
-		<div id="Kentucky" class="state">
+		<div id="Kentucky" class="state hidden">
 			<h3>Kentucky <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Kentucky"); ?>
 		</div>
-		<div id="Louisiana" class="state">
+		<div id="Louisiana" class="state hidden">
 			<h3>Louisiana <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Louisiana"); ?>
 		</div>
-		<div id="Maine" class="state">
+		<div id="Maine" class="state hidden">
 			<h3>Maine <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Maine"); ?>
 		</div>
-		<div id="Maryland" class="state">
+		<div id="Maryland" class="state hidden">
 			<h3>Maryland <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Maryland"); ?>
 		</div>
-		<div id="Massachusetts" class="state">
+		<div id="Massachusetts" class="state hidden">
 			<h3>Massachusetts <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Massachusetts"); ?>
 		</div>
-		<div id="Michigan" class="state">
+		<div id="Michigan" class="state hidden">
 			<h3>Michigan <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Michigan"); ?>
 		</div>
-		<div id="Minnesota" class="state">
+		<div id="Minnesota" class="state hidden">
 			<h3>Minnesota <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Minnesota"); ?>
 		</div>
-		<div id="Mississippi" class="state">
+		<div id="Mississippi" class="state hidden">
 			<h3>Mississippi <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Mississippi"); ?>
 		</div>
-		<div id="Missouri" class="state">
+		<div id="Missouri" class="state hidden">
 			<h3>Missouri <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Missouri"); ?>
 		</div>
-		<div id="Montana" class="state">
+		<div id="Montana" class="state hidden">
 			<h3>Montana <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Montana"); ?>
 		</div>
-		<div id="Nebraska" class="state">
+		<div id="Nebraska" class="state hidden">
 			<h3>Nebraska <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Nebraska"); ?>
 		</div>
-		<div id="Nevada" class="state">
+		<div id="Nevada" class="state hidden">
 			<h3>Nevada <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Nevada"); ?>
 		</div>
-		<div id="NewHampshire" class="state">
+		<div id="NewHampshire" class="state hidden">
 			<h3>New Hampshire <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("New Hampshire"); ?>
 		</div>
-		<div id="NewJersey" class="state">
+		<div id="NewJersey" class="state hidden">
 			<h3>New Jersey <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("New Jersey"); ?>
 		</div>
-		<div id="NewMexico" class="state">
+		<div id="NewMexico" class="state hidden">
 			<h3>New Mexico <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("New Mexico"); ?>
 		</div>
-		<div id="NewYork" class="state">
+		<div id="NewYork" class="state hidden">
 			<h3>New York <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("New York"); ?>
 		</div>
-		<div id="NorthCarolina" class="state">
+		<div id="NorthCarolina" class="state hidden">
 			<h3>North Carolina <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("North Carolina"); ?>
 		</div>
-		<div id="NorthDakota" class="state">
+		<div id="NorthDakota" class="state hidden">
 			<h3>North Dakota <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("North Dakota"); ?>
 		</div>
-		<div id="Ohio" class="state">
+		<div id="Ohio" class="state hidden">
 			<h3>Ohio <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Ohio"); ?>
 		</div>
-		<div id="Oklahoma" class="state">
+		<div id="Oklahoma" class="state hidden">
 			<h3>Oklahoma <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Oklahoma"); ?>
 		</div>
-		<div id="Oregon" class="state">
+		<div id="Oregon" class="state hidden">
 			<h3>Oregon <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Oregon"); ?>
 		</div>
-		<div id="Pennsylvania" class="state">
+		<div id="Pennsylvania" class="state hidden">
 			<h3>Pennsylvania <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Pennsylvania"); ?>
 		</div>
-		<div id="RhodeIsland" class="state">
+		<div id="RhodeIsland" class="state hidden">
 			<h3>Rhode Island <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Rhode Island"); ?>
 		</div>
-		<div id="SouthCarolina" class="state">
+		<div id="SouthCarolina" class="state hidden">
 			<h3>South Carolina <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("South Carolina"); ?>
 		</div>
-		<div id="SouthDakota" class="state">
+		<div id="SouthDakota" class="state hidden">
 			<h3>South Dakota <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("South Dakota"); ?>
 		</div>
-		<div id="Tennessee" class="state">
+		<div id="Tennessee" class="state hidden">
 			<h3>Tennessee <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Tennessee"); ?>
 		</div>
-		<div id="Texas" class="state">
+		<div id="Texas" class="state hidden">
 			<h3>Texas <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Texas"); ?>
 		</div>
-		<div id="Utah" class="state">
+		<div id="Utah" class="state hidden">
 			<h3>Utah <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Utah"); ?>
 		</div>
-		<div id="Vermont" class="state">
+		<div id="Vermont" class="state hidden">
 			<h3>Vermont <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Vermont"); ?>
 		</div>
-		<div id="Virginia" class="state">
+		<div id="Virginia" class="state hidden">
 			<h3>Virginia <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Virginia"); ?>
 		</div>
-		<div id="Washington" class="state">
+		<div id="Washington" class="state hidden">
 			<h3>Washington <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Washington"); ?>
 		</div>
-		<div id="WestVirginia" class="state">
+		<div id="WestVirginia" class="state hidden">
 			<h3>West Virginia <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("West Virginia"); ?>
 		</div>
-		<div id="Wisconsin" class="state">
+		<div id="Wisconsin" class="state hidden">
 			<h3>Wisconsin <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Wisconsin"); ?>
 		</div>
-		<div id="Wyoming" class="state">
+		<div id="Wyoming" class="state hidden">
 			<h3>Wyoming <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Wyoming"); ?>
 		</div>

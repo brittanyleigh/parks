@@ -7,6 +7,7 @@ $(document).ready(function() {
 	var cty = true;
 	$('.state h3 i').on('click', function(){
 		var parent_state = $(this).parents('.state');
+		$(parent_state).toggleClass('visible hidden');
 		var natlPks = $(parent_state).find('.park.national-pk');
 		var stPks = $(parent_state).find('.park.state-pk');
 		var ctyPks = $(parent_state).find('.park.city-pk');
@@ -38,6 +39,7 @@ $(document).ready(function() {
 	$('.show-hide').on('click', function(){
 		$('.show').toggle();
 		$('.hide').toggle();
+		$('.state').toggleClass('visible hidden');
 	});
 
 
@@ -65,12 +67,18 @@ $(document).ready(function() {
 	});
 	$('#natl').on('click', function(){
 		natl = !natl;
+		var visiblePks = $('.list').find('.visible');
+		$(visiblePks).find('.national-pk').toggle(750);
 	});
 	$('#st').on('click', function(){
 		st = !st;
+		var visiblePks = $('.list').find('.visible');
+		$(visiblePks).find('.state-pk').toggle(750);
 	});
 	$('#cty').on('click', function(){
 		cty = !cty;
+		var visiblePks = $('.list').find('.visible');
+		$(visiblePks).find('.city-pk').toggle(750);
 	});
 
 });
