@@ -34,9 +34,16 @@ $city-color: #d36d56;
 
 }
 .heading {
-	width: 400px;
-	margin: 0 auto;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
+	width: 85%;
+	align-items: flex-start;
+	margin: 0 auto;
+	h1, .key, .options{
+		width: 100%;
+	}
 }
 
 @mixin pk-colors($color){
@@ -56,11 +63,18 @@ $city-color: #d36d56;
 .city-pk {
 	@include pk-colors($city-color);
 }
-#us-map{
-  display: inline-block; 
-  top: -20;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.button {
+	background-color: $natl-color;
+	width: 100px;
+	margin: 10px;
+	&:hover{
+		cursor: pointer;
+	}
+	h4 {
+		margin: 12px;
+	}
+}
+.fa-angle-down, .fa-angle-up, .fa-circle-o, .fa-check-circle-o {
+	cursor: pointer;
 }
 

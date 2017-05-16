@@ -9,7 +9,8 @@
 
 	function listParks($state){
 		global $pdo;
-		$parks = $pdo->prepare("SELECT * FROM parks WHERE state= $state");
+		$parks = $pdo->prepare("SELECT * FROM parks WHERE state = :state");
+		$parks->bindValue(":state", $state, PDO::PARAM_STR);
 		$parks->execute();
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
