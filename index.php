@@ -22,9 +22,9 @@
 		<div class="button show-hide show"><h4>Show All</h4></div>
 		<div class="button filter"><h4>Filter <i class="fa fa-lg fa-angle-down"></i></h4></div>
 		<div class="options"><h4>
-			<span class="national-pk"><i id="natl" class="fa fa-lg fa-check-circle-o"></i> National Parks </span>
-			<span class="state-pk"><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
-			<span class="city-pk"><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
+			<span class=""><i id="natl" class="fa fa-lg fa-check-circle-o"></i> National Parks </span>
+			<span class=""><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
+			<span class=""><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
 		</h4></div>
 	</div>
 	<div class="list">

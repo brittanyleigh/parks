@@ -77,4 +77,13 @@ $city-color: #d36d56;
 .fa-angle-down, .fa-angle-up, .fa-circle-o, .fa-check-circle-o {
 	cursor: pointer;
 }
+#natl {
+	color: $natl-color;
+}
+#st {
+	color: $state-color;
+}
+#cty {
+	color: $city-color;
+}
 

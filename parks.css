@@ -60,4 +60,13 @@
 .fa-angle-down, .fa-angle-up, .fa-circle-o, .fa-check-circle-o {
   cursor: pointer; }
 
+#natl {
+  color: #5d935f; }
+
+#st {
+  color: #b27c25; }
+
+#cty {
+  color: #d36d56; }
+
 /*# sourceMappingURL=parks.css.map */
