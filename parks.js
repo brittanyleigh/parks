@@ -2,6 +2,8 @@ $(document).ready(function() {
 	$('.park').hide();
 	$('.hide').hide();
 	$('.options').hide();
+	$('#log-in').hide();
+	$('#new-account').hide();
 	var natl = true;
 	var st = true;
 	var cty = true;
@@ -56,6 +58,27 @@ $(document).ready(function() {
 		$('.visible').toggleClass('visible hidden');
 		upDown('.state .fa-angle-up');
 	});
+
+	$('.login').on('click', function(){
+		$('#log-in').fadeIn(750);
+		$(this).hide();
+		$('.createAcct').hide();
+	});
+	$('.createAcct').on('click', function(){
+		$('#new-account').fadeIn(750);
+		$(this).hide();
+		$('.login').hide();
+	});
+	$('#log-in .cancel').on('click', function(){
+		$('#log-in').hide();
+		$('.login').fadeIn(750);
+		$('.createAcct').fadeIn(750);
+	});
+	$('#new-account .cancel').on('click', function(){
+		$('#new-account').hide();
+		$('.createAcct').fadeIn(750);
+		$('.login').fadeIn(750);
+	})
 
 
 

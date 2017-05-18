@@ -5,6 +5,7 @@ $dk-gray: #303030;
 $natl-color: #5d935f;
 $state-color: #b27c25;
 $city-color: #d36d56;	
+$h4-size: 16px;
 
 * {
 	font-family: $font-stack;
@@ -39,10 +40,13 @@ $city-color: #d36d56;
 	justify-content: center;
 	flex-flow: row wrap;
 	width: 85%;
-	align-items: flex-start;
+	align-items: center;
 	margin: 0 auto;
-	h1, .key, .options{
+	.key, .options, #new-account, #log-in{
 		width: 100%;
+	}
+	h1 {
+		margin-right: 15px;
 	}
 }
 
@@ -64,11 +68,13 @@ $city-color: #d36d56;
 	@include pk-colors($city-color);
 }
 .button {
-	background-color: $natl-color;
+	background-color: lighten($natl-color, 30%);
 	width: 100px;
 	margin: 10px;
+	border: none;
 	&:hover{
 		cursor: pointer;
+		background-color: lighten($natl-color, 15%);
 	}
 	h4 {
 		margin: 12px;
@@ -86,4 +92,30 @@ $city-color: #d36d56;
 #cty {
 	color: $city-color;
 }
+h4 {
+	font-size: $h4-size;
+}
+.large {
+	font-size: $h4-size;
+	padding: 5px;
+	margin: 10px;
+}
+.login, .createAcct {
+	background-color: lighten($state-color, 30%);
+	&:hover {
+		background-color: lighten($state-color, 15%);
+	}
+}
+#log-in button, #new-account button {
+	background-color: lighten($state-color, 30%);
+	border: none;
+	padding: 10px;
+	width: 100px;
+	&:hover {
+		cursor: pointer;
+		background-color: lighten($state-color, 15%);
+	}
+}
+
+
 

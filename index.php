@@ -13,6 +13,26 @@
 <body>
 	<div class="heading">
 		<h1>Best USA Parks</h1>
+		<div class="button login"><h4>Log In</h4></div>
+		<div class="button createAcct"><h4>Sign Up</h4></div>
+
+		<form id="log-in">
+			<input class="large" type="text" placeholder="Enter Username" name="uname" required>
+			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
+			<button class="large" type="submit">Login</button>
+			<button class="large cancel" type="button">Cancel</button>
+		</form>
+
+		<form id="new-account">
+			<input class="large" type="text" placeholder="Enter Username" name="uname" required>
+			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
+			<input class="large" type="password" placeholder="Confirm Password" name="psw-repeat" required>
+			<div class="form-buttons">
+				<button class="large" type="submit">Sign Up</button>
+				<button class="large cancel" type="button">Cancel</button>
+			</div>
+		</form>
+
 		<h4 class="key">
 			<span class="national-pk"><i class="fa fa-lg fa-tree"></i> = National Park </span>
 			<span class="state-pk"><i class="fa fa-lg fa-tree"></i> = State Park</span>
@@ -21,11 +41,13 @@
 		<div class="button show-hide hide"><h4>Hide All</h4></div>
 		<div class="button show-hide show"><h4>Show All</h4></div>
 		<div class="button filter"><h4>Filter <i class="fa fa-lg fa-angle-down"></i></h4></div>
-		<div class="options"><h4>
-			<span class=""><i id="natl" class="fa fa-lg fa-check-circle-o"></i> National Parks </span>
-			<span class=""><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
-			<span class=""><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
-		</h4></div>
+		<div class="options">
+			<h4>
+				<span><i id="natl" class="fa fa-lg fa-check-circle-o"></i> National Parks </span>
+				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
+				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
+			</h4>
+		</div>
 	</div>
 	<div class="list">
 		<div id="Alabama" class="state hidden">
@@ -228,7 +250,5 @@
 			<h3>Wyoming <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Wyoming"); ?>
 		</div>
-
-
 	</div>
 </body>
