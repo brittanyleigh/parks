@@ -1,6 +1,35 @@
 <?php 
 	require 'pdo.php';
+	session_start();
 
+	$username = '';
+	$user_msg = '';
+	if ($_POST['username'])
+	{
+	    // We redirect only if the password is correct
+	    $username = $_POST['username'];
+	    $ok = tryLogin($username, $_POST['password']);
+	    if ($ok)
+	    {
+	        login($username);
+	    }
+	    else {
+	    	$user_msg = "Oops! Login failed, try again.";
+	    }
+	}
+	if ($_POST['uname']){
+			    //new user creation
+	    $newuser = $_POST['uname'];
+	    $newpw = $_POST['psw'];
+	    $confirmpw = $_POST['psw-repeat'];
+	    if ($newpw === $confirmpw){
+	    	createUser($newuser, $newpw);  
+	    	$user_msg = "New user created, you can now login!";  
+		}
+		else {
+			$user_msg = "Fail!";
+		}
+	}
  ?>
 
 <head>
@@ -12,18 +41,23 @@
 
 <body>
 	<div class="heading">
-		<h1>Best USA Parks</h1>
-		<div class="button login"><h4>Log In</h4></div>
-		<div class="button createAcct"><h4>Sign Up</h4></div>
+		<h1>Welcome <?php echo $_SESSION['logged_in_username'] ?>! These are the USA's Parks!</h1>
+		
+		<?php if (isLoggedIn()): ?>
+	        <a href="logout.php" class="button logout"><h4>Log Out</h4></a>
+	    <?php else: ?>
+	    	<div class="button login"><h4>Log In</h4></div>
+			<div class="button createAcct"><h4>Sign Up</h4></div>
+	    <?php endif ?>
 
-		<form id="log-in">
-			<input class="large" type="text" placeholder="Enter Username" name="uname" required>
-			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
+	    <form action="" method="post" id="log-in">
+			<input class="large" type="text" placeholder="Enter Username" name="username" required>
+			<input class="large" type="password" placeholder="Enter Password" name="password" required>
 			<button class="large" type="submit">Login</button>
 			<button class="large cancel" type="button">Cancel</button>
 		</form>
 
-		<form id="new-account">
+		<form id="new-account" action="" method="post">
 			<input class="large" type="text" placeholder="Enter Username" name="uname" required>
 			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
 			<input class="large" type="password" placeholder="Confirm Password" name="psw-repeat" required>
@@ -32,6 +66,8 @@
 				<button class="large cancel" type="button">Cancel</button>
 			</div>
 		</form>
+
+		<div id="user-msg"><h3><?php echo $user_msg ?></h3></div>
 
 		<h4 class="key">
 			<span class="national-pk"><i class="fa fa-lg fa-tree"></i> = National Park </span>

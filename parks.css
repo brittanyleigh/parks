@@ -30,10 +30,15 @@
   width: 85%;
   align-items: center;
   margin: 0 auto; }
-  .heading .key, .heading .options, .heading #new-account, .heading #log-in {
+  .heading .key, .heading .options, .heading #new-account, .heading #log-in, .heading #user-msg {
     width: 100%; }
   .heading h1 {
     margin-right: 15px; }
+  .heading a {
+    text-decoration: none;
+    color: #303030; }
+  .heading a:visited, .heading a:active {
+    color: #303030; }
 
 .national-pk i {
   color: #5d935f; }
@@ -81,9 +86,9 @@ h4 {
   padding: 5px;
   margin: 10px; }
 
-.login, .createAcct {
+.login, .createAcct, .logout {
   background-color: #e7c389; }
-  .login:hover, .createAcct:hover {
+  .login:hover, .createAcct:hover, .logout:hover {
     background-color: #d9a34a; }
 
 #log-in button, #new-account button {
@@ -94,5 +99,11 @@ h4 {
   #log-in button:hover, #new-account button:hover {
     cursor: pointer;
     background-color: #d9a34a; }
+
+#new-account, #log-in {
+  display: none; }
+
+#user-msg {
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=parks.css.map */
