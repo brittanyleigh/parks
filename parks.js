@@ -59,13 +59,14 @@ $(document).ready(function() {
 		upDown('.state .fa-angle-up');
 	});
 
+/// Login // Create Account Buttons ///
 	$('.login').on('click', function(){
-		$('#log-in').fadeIn(750);
+		$('#log-in').slideToggle(750);
 		$(this).hide();
 		$('.createAcct').hide();
 	});
 	$('.createAcct').on('click', function(){
-		$('#new-account').fadeIn(750);
+		$('#new-account').slideToggle(750);
 		$(this).hide();
 		$('.login').hide();
 	});
