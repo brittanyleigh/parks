@@ -28,5 +28,51 @@
 		}
 	}
 
+	function createUser($username, $password){
+		global $pdo;
+	    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+	    $stmt = $pdo->prepare($sql);
+	    // Create a hash of the password, to make a stolen user database (nearly) worthless
+	    $hash = password_hash($password, PASSWORD_DEFAULT);
+	    // Insert user details, including hashed password
+	    $stmt->bindParam(':username', $username);
+	    $stmt->bindParam(':password', $hash);
+		$stmt->execute();
+    }
+
+    function tryLogin($username, $password){
+    	global $pdo;
+	    $sql = "
+	        SELECT
+	            password
+	        FROM
+	            users
+	        WHERE
+	            username = :username
+	    	";
+	    $stmt = $pdo->prepare($sql);
+	    $stmt->execute(
+	        array('username' => $username, )
+	    );
+	    // Get the hash from this row, and use the third-party hashing library to check it
+	    $hash = $stmt->fetchColumn();
+	    $success = password_verify($password, $hash);
+	    return $success;
+	}
+
+	function login($username){
+	    session_regenerate_id();
+	    $_SESSION['logged_in_username'] = $username;
+	}
+
+	function isLoggedIn(){
+    	return isset($_SESSION['logged_in_username']);
+	}
+
+	function logout(){
+	    unset($_SESSION['logged_in_username']);
+	}
+
+
 
  ?>

@@ -2,8 +2,8 @@ $(document).ready(function() {
 	$('.park').hide();
 	$('.hide').hide();
 	$('.options').hide();
-	$('#log-in').hide();
-	$('#new-account').hide();
+	//$('#log-in').hide();
+	//$('#new-account').hide();
 	var natl = true;
 	var st = true;
 	var cty = true;
@@ -59,14 +59,16 @@ $(document).ready(function() {
 		upDown('.state .fa-angle-up');
 	});
 
-/// Login // Create Account Buttons ///
+
 	$('.login').on('click', function(){
+		$('#user-msg').hide();
 		$('#log-in').slideToggle(750);
 		$(this).hide();
 		$('.createAcct').hide();
 	});
 	$('.createAcct').on('click', function(){
 		$('#new-account').slideToggle(750);
+		$('#user-msg').hide();
 		$(this).hide();
 		$('.login').hide();
 	});
