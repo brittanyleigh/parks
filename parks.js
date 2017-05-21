@@ -7,6 +7,8 @@ $(document).ready(function() {
 	var natl = true;
 	var st = true;
 	var cty = true;
+	var visited = true;
+	var unvisited = true;
 
 /// Individual State Display ///
 	$('.state h3 i').on('click', function(){
@@ -17,6 +19,11 @@ $(document).ready(function() {
 		var ctyPks = $(parent_state).find('.city-pk');
 		viewAndFilter(natlPks, stPks, ctyPks);
 		upDown(this);
+	});
+	$('.checkbox').on('click', function(){
+		$(this).toggleClass('fa-circle-thin fa-check-circle-o');
+		var parkDiv = $(this).parent('div');
+		$(parkDiv).toggleClass('visited unvisited');
 	});
 
 /// Filter Options ///
@@ -29,16 +36,21 @@ $(document).ready(function() {
 	});
 		$('#natl').on('click', function(){
 		natl = !natl;
-		findVisiblePks('.national');
+		findVisiblePks('.national-pk');
+		checkVisit();
 	});
 	$('#st').on('click', function(){
 		st = !st;
-		findVisiblePks('.state');
+		findVisiblePks('.state-pk');
+		checkVisit();
 	});
 	$('#cty').on('click', function(){
 		cty = !cty;
-		findVisiblePks('.city');
+		findVisiblePks('.city-pk');
+		checkVisit();
 	});
+
+
 
 /// Show & Hide Buttons ///
 	$('.show-hide').on('click', function(){
@@ -59,7 +71,7 @@ $(document).ready(function() {
 		upDown('.state .fa-angle-up');
 	});
 
-
+/// Login / Signup Display ///
 	$('.login').on('click', function(){
 		$('#user-msg').hide();
 		$('#log-in').slideToggle(750);
@@ -85,14 +97,16 @@ $(document).ready(function() {
 
 
 
+
 	function upDown(selection){
 		$(selection).toggleClass('fa-angle-down fa-angle-up');
 	};
 
 	function findVisiblePks(type){
 		var visiblePks = $('.list').find('.visible');
-		$(visiblePks).find(type + '-pk').toggle(750);
+		$(visiblePks).find(type).toggle(750);
 	};
+
 
 	function viewAndFilter(national, state, city){
 		if (natl){

@@ -27,7 +27,7 @@
 	    	$user_msg = "New user created, you can now login!";  
 		}
 		else {
-			$user_msg = "Fail!";
+			$user_msg = "Oops, try again!";
 		}
 	}
  ?>
@@ -82,6 +82,10 @@
 				<span><i id="natl" class="fa fa-lg fa-check-circle-o"></i> National Parks </span>
 				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
 				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
+			</h4>
+			<h4>
+				<span><i id="visited" class="fa fa-lg fa-check-circle-o"></i> Visited </span>
+				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
 			</h4>
 		</div>
 	</div>

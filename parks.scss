@@ -58,7 +58,7 @@ $h4-size: 16px;
 }
 
 @mixin pk-colors($color){
-	i {
+	.fa-tree {
 		color: $color;
 	}
 	a:hover {
@@ -129,6 +129,14 @@ h4 {
 #user-msg {
 	text-transform: uppercase;
 }
-
+.checkbox {
+	color: $dk-gray;
+	&:hover {
+		cursor: pointer;
+	}
+}
+#visited, #unvisited {
+	color: $dk-gray;
+}
 
 

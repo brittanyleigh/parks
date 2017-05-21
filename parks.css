@@ -40,17 +40,17 @@
   .heading a:visited, .heading a:active {
     color: #303030; }
 
-.national-pk i {
+.national-pk .fa-tree {
   color: #5d935f; }
 .national-pk a:hover {
   color: #5d935f; }
 
-.state-pk i {
+.state-pk .fa-tree {
   color: #b27c25; }
 .state-pk a:hover {
   color: #b27c25; }
 
-.city-pk i {
+.city-pk .fa-tree {
   color: #d36d56; }
 .city-pk a:hover {
   color: #d36d56; }
@@ -105,5 +105,13 @@ h4 {
 
 #user-msg {
   text-transform: uppercase; }
+
+.checkbox {
+  color: #303030; }
+  .checkbox:hover {
+    cursor: pointer; }
+
+#visited, #unvisited {
+  color: #303030; }
 
 /*# sourceMappingURL=parks.css.map */

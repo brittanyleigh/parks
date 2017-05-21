@@ -14,9 +14,12 @@
 		$parks->execute();
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
-			$pk_div = "<div class=\"park ";
+			$pk_div = "<div class=\"park unvisited ";
 			$pk_div .= $row["type"];
 			$pk_div .= "-pk\">";
+			if (isLoggedIn()){
+				$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+			}
 			$pk_div .= "<a target=\"_blank\" href=\""; 
 			$pk_div .= $row["link"];
 			$pk_div .= "\">";
