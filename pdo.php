@@ -14,11 +14,17 @@
 		$parks->execute();
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
+			$pk_id = $row["id"];
 			$pk_div = "<div class=\"park unvisited ";
 			$pk_div .= $row["type"];
 			$pk_div .= "-pk\">";
 			if (isLoggedIn()){
-				$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+				if (checkVisit($pk_id)){
+					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";
+				}
+				else {
+					$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+				}
 			}
 			$pk_div .= "<a target=\"_blank\" href=\""; 
 			$pk_div .= $row["link"];
@@ -76,6 +82,15 @@
 	    unset($_SESSION['logged_in_username']);
 	}
 
+	function checkVisit($id){
+		global $pdo;
+		$visit = $pdo->prepare("SELECT * FROM Visits WHERE username = :username AND park_id = :id");
+		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
+		$visit->bindValue(":id", $id);
+		$visit->execute();
+		$visit_list = $visit->fetchAll(PDO::FETCH_ASSOC);
+		return $visit_list[0];		
+	}
 
 
  ?>
