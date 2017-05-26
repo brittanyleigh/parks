@@ -61,6 +61,15 @@
 		$stmt->execute();
     }
 
+    function checkUser($username){
+		global $pdo;
+		$users = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+		$users->bindValue(":username", $username, PDO::PARAM_STR);
+		$users->execute();
+		$users_list = $users->fetchAll(PDO::FETCH_ASSOC);
+		return $users_list[0];
+    }
+
     function tryLogin($username, $password){
     	global $pdo;
 	    $sql = "

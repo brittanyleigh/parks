@@ -22,13 +22,19 @@
 	    $newuser = $_POST['uname'];
 	    $newpw = $_POST['psw'];
 	    $confirmpw = $_POST['psw-repeat'];
-	    if ($newpw === $confirmpw){
-	    	createUser($newuser, $newpw);  
-	    	$user_msg = "New user created, you can now login!";  
-		}
-		else {
-			$user_msg = "Oops, try again!";
-		}
+	    if (!checkUser($newuser)){
+		    	if ($newpw === $confirmpw){
+		    	createUser($newuser, $newpw);  
+		    	$user_msg = "New user created, you can now login!";  
+			}
+			else {
+				$user_msg = "Oops, try again!";
+			}
+	    }
+	    else {
+	    	$user_msg = "Username taken, sorry!";
+	    }
+	    
 	}
 
 	if($_POST['visit'] == "visit"){
