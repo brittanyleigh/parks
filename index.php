@@ -6,7 +6,7 @@
 	$user_msg = '';
 	if ($_POST['username'])
 	{
-	    // We redirect only if the password is correct
+	    // login user
 	    $username = $_POST['username'];
 	    $ok = tryLogin($username, $_POST['password']);
 	    if ($ok)
@@ -29,6 +29,9 @@
 		else {
 			$user_msg = "Oops, try again!";
 		}
+	}
+	if ($_POST['park']){
+		addVisit($_POST['park']);
 	}
  ?>
 
@@ -83,11 +86,16 @@
 				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
 				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
 			</h4>
-			<h4>
+			<!--<h4>
 				<span><i id="visited" class="fa fa-lg fa-check-circle-o"></i> Visited </span>
 				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
-			</h4>
+			</h4>-->
 		</div>
+		<form id="visit" method="post" action="">
+			<i class="testing fa checkbox fa-circle-thin"></i>
+			<input type="hidden" name="park" value="25">
+			<input type="hidden" name="visit" value="visited">
+		</form>
 	</div>
 	<div class="list">
 		<div id="Alabama" class="state hidden">

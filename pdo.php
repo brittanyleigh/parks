@@ -92,5 +92,12 @@
 		return $visit_list[0];		
 	}
 
+	function addVisit($id){
+		global $pdo;
+		$visit = $pdo->prepare("INSERT INTO Visits (username, park_id) VALUES (:username, :id)");
+		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
+		$visit->bindValue(":id", $id);
+		$visit->execute();
+	}
 
  ?>

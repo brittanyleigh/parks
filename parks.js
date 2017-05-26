@@ -96,6 +96,18 @@ $(document).ready(function() {
 	})
 
 
+	$('.testing').on('click', function(){
+		var url = "index.php"; // the script where you handle the form input.
+
+	    $.ajax({
+	           type: "POST",
+	           url: url,
+	           data: $("#visit").serialize(), // serializes the form's elements.
+    });
+
+    return false; // avoid to execute the actual submit of the form.
+	});
+
 
 
 	function upDown(selection){
