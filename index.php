@@ -30,9 +30,16 @@
 			$user_msg = "Oops, try again!";
 		}
 	}
-	if ($_POST['park']){
+
+	if($_POST['visit'] == "visit"){
 		addVisit($_POST['park']);
 	}
+	if($_POST['visit'] == "unvisit"){
+		removeVisit($_POST['park']);
+	}
+
+
+	
  ?>
 
 <head>
@@ -91,11 +98,7 @@
 				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
 			</h4>-->
 		</div>
-		<form id="visit" method="post" action="">
-			<i class="testing fa checkbox fa-circle-thin"></i>
-			<input type="hidden" name="park" value="25">
-			<input type="hidden" name="visit" value="visited">
-		</form>
+
 	</div>
 	<div class="list">
 		<div id="Alabama" class="state hidden">

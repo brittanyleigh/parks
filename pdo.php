@@ -15,16 +15,28 @@
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
 			$pk_id = $row["id"];
+
+
+
 			$pk_div = "<div class=\"park unvisited ";
 			$pk_div .= $row["type"];
 			$pk_div .= "-pk\">";
 			if (isLoggedIn()){
+				$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
 				if (checkVisit($pk_id)){
 					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";
+					$visit_val = "unvisit";
 				}
 				else {
 					$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+					$visit_val = "visit";
 				}
+				$pk_div .= "<input type=\"hidden\" name=\"park\" value=\"";
+				$pk_div .= $pk_id;
+				$pk_div .= "\">";
+				$pk_div .= "<input type=\"hidden\" name=\"visit\" value=\"";
+				$pk_div .= $visit_val;
+				$pk_div .= "\"></form>";
 			}
 			$pk_div .= "<a target=\"_blank\" href=\""; 
 			$pk_div .= $row["link"];
@@ -95,6 +107,14 @@
 	function addVisit($id){
 		global $pdo;
 		$visit = $pdo->prepare("INSERT INTO Visits (username, park_id) VALUES (:username, :id)");
+		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
+		$visit->bindValue(":id", $id);
+		$visit->execute();
+	}
+
+	function removeVisit($id){
+		global $pdo;
+		$visit = $pdo->prepare("DELETE FROM Visits WHERE username = :username AND park_id = :id");
 		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
 		$visit->bindValue(":id", $id);
 		$visit->execute();

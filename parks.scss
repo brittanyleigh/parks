@@ -32,7 +32,11 @@ $h4-size: 16px;
 	a:visited {
 		color: $dk-gray;
 	}
-
+}
+.park {
+	form {
+		display: inline;
+	}
 }
 .heading {
 	text-align: center;

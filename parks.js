@@ -22,8 +22,26 @@ $(document).ready(function() {
 	});
 	$('.checkbox').on('click', function(){
 		$(this).toggleClass('fa-circle-thin fa-check-circle-o');
-		var parkDiv = $(this).parent('div');
+		var parkDiv = $(this).parents('.park');
+		var parkForm = $(parkDiv).find('form');	
+		var formVisit = $(parkForm).find('input[name=visit]');
 		$(parkDiv).toggleClass('visited unvisited');
+
+		var phpurl = "index.php"; // the script where you handle the form input.
+
+	    $.ajax({
+	           type: "POST",
+	           url: phpurl,
+	           data: $(parkForm).serialize(), // serializes the form's elements.
+	    });
+	    if ($(parkDiv).hasClass('visited')){
+	    	$(formVisit).val('unvisit');
+	    };
+		if ($(parkDiv).hasClass('unvisited')){
+	    	$(formVisit).val('visit');
+	    };
+	    
+    	//return false; // avoid to execute the actual submit of the form.
 	});
 
 /// Filter Options ///
@@ -103,8 +121,9 @@ $(document).ready(function() {
 	           type: "POST",
 	           url: url,
 	           data: $("#visit").serialize(), // serializes the form's elements.
-    });
+	    });
 
+	    $('input[name=visit]').val('visit');
     return false; // avoid to execute the actual submit of the form.
 	});
 
