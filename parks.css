@@ -2,7 +2,7 @@
 * {
   font-family: "Roboto Slab", serif; }
 
-.list {
+#list {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;

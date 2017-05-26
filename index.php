@@ -37,6 +37,8 @@
 	<script src="parks.js"></script>
 	<link rel="stylesheet" href="parks.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="filtrify.js"></script>
+	<link rel="stylesheet" href="filtrify.css">
 </head>
 
 <body>
@@ -83,13 +85,17 @@
 				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
 				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
 			</h4>
+			<!--<?php if (isLoggedIn()): ?>
 			<h4>
 				<span><i id="visited" class="fa fa-lg fa-check-circle-o"></i> Visited </span>
 				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
 			</h4>
+			<?php endif ?>-->
 		</div>
+		<div id="filter"></div>
 	</div>
-	<div class="list">
+
+	<div id="list">
 		<div id="Alabama" class="state hidden">
 			<h3>Alabama <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Alabama"); ?>
