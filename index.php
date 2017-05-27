@@ -3,33 +3,51 @@
 	session_start();
 
 	$username = '';
-	$user_msg = '';
+	$user_msg = 'Log in to track the parks you\'ve been to!';
+
+
 	if ($_POST['username'])
 	{
-	    // We redirect only if the password is correct
+	    // login user
 	    $username = $_POST['username'];
 	    $ok = tryLogin($username, $_POST['password']);
 	    if ($ok)
 	    {
 	        login($username);
+	        $user_msg = "The mountains are calling and I must go. --John Muir";
 	    }
 	    else {
 	    	$user_msg = "Oops! Login failed, try again.";
 	    }
-	}
+	} // LOGIN 
+
 	if ($_POST['uname']){
 			    //new user creation
 	    $newuser = $_POST['uname'];
 	    $newpw = $_POST['psw'];
 	    $confirmpw = $_POST['psw-repeat'];
-	    if ($newpw === $confirmpw){
-	    	createUser($newuser, $newpw);  
-	    	$user_msg = "New user created, you can now login!";  
-		}
-		else {
-			$user_msg = "Oops, try again!";
-		}
+	    if (!checkUser($newuser)){
+		    if ($newpw === $confirmpw){
+		    	$user_msg = createUser($newuser, $newpw);  
+			}
+			else {
+				$user_msg = "Oops, try again!";
+			}
+	    }
+	    else {
+	    	$user_msg = "Username taken, sorry!";
+	    }	    
+	} // CREATE USER
+
+	if($_POST['visit'] == "visit"){
+		addVisit($_POST['park']);
 	}
+	if($_POST['visit'] == "unvisit"){
+		removeVisit($_POST['park']);
+	} // ADD & REMOVE VISITED PARKS
+
+
+	
  ?>
 
 <head>
@@ -64,7 +82,7 @@
 			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
 			<input class="large" type="password" placeholder="Confirm Password" name="psw-repeat" required>
 			<div class="form-buttons">
-				<button class="large" type="submit">Sign Up</button>
+				<button id="signup" class="large" type="submit">Sign Up</button>
 				<button class="large cancel" type="button">Cancel</button>
 			</div>
 		</form>
@@ -85,14 +103,12 @@
 				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
 				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
 			</h4>
-			<!--<?php if (isLoggedIn()): ?>
-			<h4>
+
+			<!--<h4>
 				<span><i id="visited" class="fa fa-lg fa-check-circle-o"></i> Visited </span>
 				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
-			</h4>
-			<?php endif ?>-->
+			</h4>-->
 		</div>
-		<div id="filter"></div>
 	</div>
 
 	<div id="list">

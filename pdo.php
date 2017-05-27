@@ -14,13 +14,28 @@
 		$parks->execute();
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
-			$pk_div = "<div class=\"park ";
+			$pk_id = $row["id"];
+			$pk_div = "<div class=\"park unvisited ";
 			$pk_div .= $row["type"];
 			$pk_div .= "-pk\" data-type=\"";
 			$pk_div .= $row["type"];
 			$pk_div .= "\" data-visited=\"unvisited\">";
 			if (isLoggedIn()){
-				$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+				$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
+				if (checkVisit($pk_id)){
+					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";
+					$visit_val = "unvisit";
+				}
+				else {
+					$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+					$visit_val = "visit";
+				}
+				$pk_div .= "<input type=\"hidden\" name=\"park\" value=\"";
+				$pk_div .= $pk_id;
+				$pk_div .= "\">";
+				$pk_div .= "<input type=\"hidden\" name=\"visit\" value=\"";
+				$pk_div .= $visit_val;
+				$pk_div .= "\"></form>";
 			}
 			$pk_div .= "<a target=\"_blank\" href=\""; 
 			$pk_div .= $row["link"];
@@ -35,14 +50,36 @@
 
 	function createUser($username, $password){
 		global $pdo;
-	    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
-	    $stmt = $pdo->prepare($sql);
-	    // Create a hash of the password, to make a stolen user database (nearly) worthless
-	    $hash = password_hash($password, PASSWORD_DEFAULT);
-	    // Insert user details, including hashed password
-	    $stmt->bindParam(':username', $username);
-	    $stmt->bindParam(':password', $hash);
-		$stmt->execute();
+		if (checkUsername($username) && checkPassword($password)){
+			$sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+		    $stmt = $pdo->prepare($sql);
+		    // Create a hash of the password, to make a stolen user database (nearly) worthless
+		    $hash = password_hash($password, PASSWORD_DEFAULT);
+		    // Insert user details, including hashed password
+		    $stmt->bindParam(':username', htmlspecialchars($username));
+		    $stmt->bindParam(':password', $hash);
+			$stmt->execute();
+			$user_msg = "New user created, you can now login!"; 
+			return $user_msg;
+		}
+		else if (!checkUsername($username)){
+			$user_msg = "Username must contain only letters, numbers, or underscores!";
+			return $user_msg;
+		}
+		else if (!checkPassword($password)){
+			$user_msg = "Recheck your password - it must be at least 8 characters long, contain 1 uppercase letter, 1 lowercase letter, and 1 number!";
+			return $user_msg;
+		}
+
+    }
+
+    function checkUser($username){
+		global $pdo;
+		$users = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+		$users->bindValue(":username", $username, PDO::PARAM_STR);
+		$users->execute();
+		$users_list = $users->fetchAll(PDO::FETCH_ASSOC);
+		return $users_list[0];
     }
 
     function tryLogin($username, $password){
@@ -78,6 +115,40 @@
 	    unset($_SESSION['logged_in_username']);
 	}
 
+	function checkVisit($id){
+		global $pdo;
+		$visit = $pdo->prepare("SELECT * FROM Visits WHERE username = :username AND park_id = :id");
+		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
+		$visit->bindValue(":id", $id);
+		$visit->execute();
+		$visit_list = $visit->fetchAll(PDO::FETCH_ASSOC);
+		return $visit_list[0];		
+	}
 
+	function addVisit($id){
+		global $pdo;
+		$visit = $pdo->prepare("INSERT INTO Visits (username, park_id) VALUES (:username, :id)");
+		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
+		$visit->bindValue(":id", $id);
+		$visit->execute();
+	}
+
+	function removeVisit($id){
+		global $pdo;
+		$visit = $pdo->prepare("DELETE FROM Visits WHERE username = :username AND park_id = :id");
+		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
+		$visit->bindValue(":id", $id);
+		$visit->execute();
+	}
+
+	function checkUsername($str){
+		$regEx = "/^\w+$/";
+		return preg_match($regEx, $str);
+	}
+
+	function checkPassword($str){
+		$regEx = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
+		return preg_match($regEx, $str);
+	}
 
  ?>
