@@ -111,21 +111,10 @@ $(document).ready(function() {
 		$('#new-account').hide();
 		$('.createAcct').fadeIn(750);
 		$('.login').fadeIn(750);
-	})
-
-
-	$('.testing').on('click', function(){
-		var url = "index.php"; // the script where you handle the form input.
-
-	    $.ajax({
-	           type: "POST",
-	           url: url,
-	           data: $("#visit").serialize(), // serializes the form's elements.
-	    });
-
-	    $('input[name=visit]').val('visit');
-    return false; // avoid to execute the actual submit of the form.
 	});
+
+
+
 
 
 

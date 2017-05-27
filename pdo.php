@@ -51,14 +51,27 @@
 
 	function createUser($username, $password){
 		global $pdo;
-	    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
-	    $stmt = $pdo->prepare($sql);
-	    // Create a hash of the password, to make a stolen user database (nearly) worthless
-	    $hash = password_hash($password, PASSWORD_DEFAULT);
-	    // Insert user details, including hashed password
-	    $stmt->bindParam(':username', $username);
-	    $stmt->bindParam(':password', $hash);
-		$stmt->execute();
+		if (checkUsername($username) && checkPassword($password)){
+			$sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+		    $stmt = $pdo->prepare($sql);
+		    // Create a hash of the password, to make a stolen user database (nearly) worthless
+		    $hash = password_hash($password, PASSWORD_DEFAULT);
+		    // Insert user details, including hashed password
+		    $stmt->bindParam(':username', $username);
+		    $stmt->bindParam(':password', $hash);
+			$stmt->execute();
+			$user_msg = "New user created, you can now login!"; 
+			return $user_msg;
+		}
+		else if (!checkUsername($username)){
+			$user_msg = "Username must contain only letters, numbers, or underscores!";
+			return $user_msg;
+		}
+		else if (!checkPassword($password)){
+			$user_msg = "Recheck your password - it must be at least 8 characters long, contain 1 uppercase letter, 1 lowercase letter, and 1 number!";
+			return $user_msg;
+		}
+
     }
 
     function checkUser($username){
@@ -127,6 +140,16 @@
 		$visit->bindValue(":username", $_SESSION['logged_in_username'], PDO::PARAM_STR);
 		$visit->bindValue(":id", $id);
 		$visit->execute();
+	}
+
+	function checkUsername($str){
+		$regEx = "/^\w+$/";
+		return preg_match($regEx, $str);
+	}
+
+	function checkPassword($str){
+		$regEx = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/";
+		return preg_match($regEx, $str);
 	}
 
  ?>

@@ -23,9 +23,8 @@
 	    $newpw = $_POST['psw'];
 	    $confirmpw = $_POST['psw-repeat'];
 	    if (!checkUser($newuser)){
-		    	if ($newpw === $confirmpw){
-		    	createUser($newuser, $newpw);  
-		    	$user_msg = "New user created, you can now login!";  
+		    if ($newpw === $confirmpw){
+		    	$user_msg = createUser($newuser, $newpw);  
 			}
 			else {
 				$user_msg = "Oops, try again!";
@@ -33,8 +32,7 @@
 	    }
 	    else {
 	    	$user_msg = "Username taken, sorry!";
-	    }
-	    
+	    }	    
 	}
 
 	if($_POST['visit'] == "visit"){
@@ -78,7 +76,7 @@
 			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
 			<input class="large" type="password" placeholder="Confirm Password" name="psw-repeat" required>
 			<div class="form-buttons">
-				<button class="large" type="submit">Sign Up</button>
+				<button id="signup" class="large" type="submit">Sign Up</button>
 				<button class="large cancel" type="button">Cancel</button>
 			</div>
 		</form>
