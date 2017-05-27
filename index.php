@@ -3,7 +3,9 @@
 	session_start();
 
 	$username = '';
-	$user_msg = '';
+	$user_msg = 'Log in to track the parks you\'ve been to!';
+
+
 	if ($_POST['username'])
 	{
 	    // login user
@@ -12,11 +14,13 @@
 	    if ($ok)
 	    {
 	        login($username);
+	        $user_msg = "The mountains are calling and I must go. --John Muir";
 	    }
 	    else {
 	    	$user_msg = "Oops! Login failed, try again.";
 	    }
-	}
+	} // LOGIN 
+
 	if ($_POST['uname']){
 			    //new user creation
 	    $newuser = $_POST['uname'];
@@ -33,14 +37,14 @@
 	    else {
 	    	$user_msg = "Username taken, sorry!";
 	    }	    
-	}
+	} // CREATE USER
 
 	if($_POST['visit'] == "visit"){
 		addVisit($_POST['park']);
 	}
 	if($_POST['visit'] == "unvisit"){
 		removeVisit($_POST['park']);
-	}
+	} // ADD & REMOVE VISITED PARKS
 
 
 	

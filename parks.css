@@ -2,6 +2,12 @@
 * {
   font-family: "Roboto Slab", serif; }
 
+body {
+  background-image: url("yosemite.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
 .list {
   display: flex;
   justify-content: space-around;
@@ -13,9 +19,14 @@
 
 .state {
   width: 200px;
-  margin: 15px; }
+  margin: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: solid 2px #5d935f;
+  padding: 10px;
+  border-radius: 10px; }
   .state h3 {
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    margin: 5px; }
   .state a {
     text-decoration: none;
     color: #303030; }
@@ -59,13 +70,14 @@
   color: #d36d56; }
 
 .button {
-  background-color: #b7d2b8;
+  background-color: #88b48a;
   width: 100px;
   margin: 10px;
-  border: none; }
+  border: none;
+  border-radius: 10px; }
   .button:hover {
     cursor: pointer;
-    background-color: #88b48a; }
+    background-color: #5d935f; }
   .button h4 {
     margin: 12px; }
 
@@ -90,6 +102,7 @@ h4 {
   margin: 10px; }
 
 .login, .createAcct, .logout {
+  border-radius: 10px;
   background-color: #e7c389; }
   .login:hover, .createAcct:hover, .logout:hover {
     background-color: #d9a34a; }
@@ -98,7 +111,8 @@ h4 {
   background-color: #e7c389;
   border: none;
   padding: 10px;
-  width: 100px; }
+  width: 100px;
+  border-radius: 10px; }
   #log-in button:hover, #new-account button:hover {
     cursor: pointer;
     background-color: #d9a34a; }
@@ -107,7 +121,7 @@ h4 {
   display: none; }
 
 #user-msg {
-  text-transform: uppercase; }
+  font-style: italic; }
 
 .checkbox {
   color: #303030; }

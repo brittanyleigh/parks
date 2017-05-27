@@ -57,7 +57,7 @@
 		    // Create a hash of the password, to make a stolen user database (nearly) worthless
 		    $hash = password_hash($password, PASSWORD_DEFAULT);
 		    // Insert user details, including hashed password
-		    $stmt->bindParam(':username', $username);
+		    $stmt->bindParam(':username', htmlspecialchars($username));
 		    $stmt->bindParam(':password', $hash);
 			$stmt->execute();
 			$user_msg = "New user created, you can now login!"; 
