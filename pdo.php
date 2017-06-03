@@ -9,12 +9,16 @@
 
 	function listParks($state){
 		global $pdo;
-		$parks = $pdo->prepare("SELECT * FROM parks WHERE state = :state");
+		$parks = $pdo->prepare("SELECT * FROM parks WHERE state = :state ORDER BY name");
 		$parks->bindValue(":state", $state, PDO::PARAM_STR);
 		$parks->execute();
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
 			$pk_id = $row["id"];
+			$pk_url = $row["link"];
+			if (substr( $pk_url, 0, 4 ) !== "http"){
+				$pk_url = "http://" . $pk_url;
+			}
 
 
 
@@ -39,7 +43,7 @@
 				$pk_div .= "\"></form>";
 			}
 			$pk_div .= "<a target=\"_blank\" href=\""; 
-			$pk_div .= $row["link"];
+			$pk_div .= $pk_url;
 			$pk_div .= "\">";
 			$pk_div .= $row["name"];
 			$pk_div .= "</a>";

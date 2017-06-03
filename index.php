@@ -59,7 +59,7 @@
 
 <body>
 	<div class="heading">
-		<h1>Welcome <?php echo $_SESSION['logged_in_username'] ?>! These are the USA's Parks!</h1>
+		<h1>Welcome <?php echo $_SESSION['logged_in_username'] ?>! These are the USA's Best Parks!</h1>
 		
 		<?php if (isLoggedIn()): ?>
 	        <a href="logout.php" class="button logout"><h4>Log Out</h4></a>
