@@ -1,13 +1,4 @@
 $(document).ready(function() {
-
-
-/*$(function() {
-
-    $.filtrify("test", "filter");
-
-});*/
-
-
 	$('.park').hide();
 	$('.hide').hide();
 	$('.options').hide();
@@ -26,8 +17,6 @@ $(document).ready(function() {
 		var natlPks = $(parent_state).find('.national-pk');
 		var stPks = $(parent_state).find('.state-pk');
 		var ctyPks = $(parent_state).find('.city-pk');
-		//checkVisit('visited');
-		//checkVisit('unvisited');
 		viewAndFilter(natlPks, stPks, ctyPks);
 		upDown(this);
 	});
@@ -75,14 +64,32 @@ $(document).ready(function() {
 		cty = !cty;
 		findVisiblePks('.city-pk');
 	});
-	/*$('#visited').on('click', function(){
-		$('.visited').toggleClass('park nopark');
-		checkVisit('visited');
+	$('#visited').on('click', function(){
+		$('.visited').toggleClass('show-vis hide-vis');
+		if (natl){
+			findVisiblePks('.national-pk.visited');
+		}
+		if (st){
+			findVisiblePks('.state-pk.visited');			
+		}
+		if (cty) {
+			findVisiblePks('.city-pk.visited');			
+		}
+
 	});
 	$('#unvisited').on('click', function(){
-		$('.unvisited').toggleClass('view noview');
-		checkVisit('unvisited');
-	});*/
+		$('.unvisited').toggleClass('show-vis hide-vis');
+		if (natl){
+			findVisiblePks('.national-pk.unvisited');		
+		}
+		if (st){
+			findVisiblePks('.state-pk.unvisited');			
+		}
+		if (cty){
+			findVisiblePks('.city-pk.unvisited');			
+		}
+		
+	});
 
 
 
@@ -97,9 +104,6 @@ $(document).ready(function() {
 		var ctyPks = '.city-pk:hidden';
 		$('.hidden').toggleClass('visible hidden');
 		viewAndFilter(natlPks, stPks, ctyPks);
-		//checkVisit('visited');
-		//checkVisit('unvisited');
-
 		upDown('.state .fa-angle-down');
 	});
 	$('.hide').on('click', function(){
@@ -142,30 +146,20 @@ $(document).ready(function() {
 	};
 
 	function findVisiblePks(type){
-		var visiblePks = $('#list').find('.visible');
-		$(visiblePks).find(type).toggle(750);
+		var visiblePks = $('.list').find('.visible');
+		$(visiblePks).find(type).not('.hide-vis').toggle(750);
+		$('.hide-vis').hide(750);
 	};
-
-	/*function checkVisit(v){
-		if (natl){
-			$('.national-pk.' + v).not(':hidden').toggle();
-		}
-		if (st){
-			$('.state-pk.' + v).not(':hidden').toggle();
-		}
-		if (cty){
-			$('.city-pk.' + v).not(':hidden').toggle();
-		}
-	};*/
 
 
 	function viewAndFilter(national, state, city){
 		if (natl){
-			$(national).toggle(750);};
+			$(national).not('.hide-vis').toggle(750);};
 		if (st){
-			$(state).toggle(750);};
+			$(state).not('.hide-vis').toggle(750);};
 		if (cty){
-			$(city).toggle(750);};
+			$(city).not('.hide-vis').toggle(750);};
+		$('.hide-vis').hide(750);
 	} //only displays park types that are checked (natl, st, cty = true when checked)
 
 });
