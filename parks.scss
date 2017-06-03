@@ -11,10 +11,10 @@ $h4-size: 16px;
 	font-family: $font-stack;
 }
 body {
-	background-image: url('yosemite.jpg');
+	background-image: url('yosemite_.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center top;
 }
 .list {
   display: flex;
@@ -145,6 +145,11 @@ h4 {
 #new-account, #log-in {
 	display: none;
 }
+#new-account p{
+	font-style: italic;
+	color: gray;
+	font-size: 14px;
+}
 #user-msg {
 	font-style: italic;
 }
@@ -157,3 +162,5 @@ h4 {
 #visited, #unvisited {
 	color: $dk-gray;
 }
+
+
