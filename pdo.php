@@ -1,6 +1,12 @@
 <?php 
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$server = $url["host"];
+	$username = $url["user"];
+	$pw = $url["pass"];
+	$db = substr($url["path"], 1);
+
 	try {
-		$pdo = new PDO('mysql:host=127.0.0.1;dbname=Parks', 'root', '');
+		$pdo = new PDO('mysql:host=' . $server . ';dbname=' . $db, $username, $pw);
 	} catch (PDOException $e) {
 		die('Could not connect!');
 	}
