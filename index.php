@@ -55,13 +55,11 @@
 	<script src="parks.js"></script>
 	<link rel="stylesheet" href="parks.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<script src="filtrify.js"></script>
-	<link rel="stylesheet" href="filtrify.css">
 </head>
 
 <body>
 	<div class="heading">
-		<h1>Welcome <?php echo $_SESSION['logged_in_username'] ?>! These are the USA's Parks!</h1>
+		<h1>Welcome <?php echo $_SESSION['logged_in_username'] ?>! These are the USA's Best Parks!</h1>
 		
 		<?php if (isLoggedIn()): ?>
 	        <a href="logout.php" class="button logout"><h4>Log Out</h4></a>
@@ -81,6 +79,7 @@
 			<input class="large" type="text" placeholder="Enter Username" name="uname" required>
 			<input class="large" type="password" placeholder="Enter Password" name="psw" required>
 			<input class="large" type="password" placeholder="Confirm Password" name="psw-repeat" required>
+			<p>Password must be at least 8 characters, include 1 uppercase letter, 1 lowercase letter, and 1 number.</p>
 			<div class="form-buttons">
 				<button id="signup" class="large" type="submit">Sign Up</button>
 				<button class="large cancel" type="button">Cancel</button>
@@ -103,15 +102,14 @@
 				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
 				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
 			</h4>
-
-			<!--<h4>
+			<h4>
 				<span><i id="visited" class="fa fa-lg fa-check-circle-o"></i> Visited </span>
 				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
-			</h4>-->
+			</h4>
 		</div>
-	</div>
 
-	<div id="list">
+	</div>
+	<div class="list">
 		<div id="Alabama" class="state hidden">
 			<h3>Alabama <i class="fa fa-angle-down"></i></h3>
 			<?php listParks("Alabama"); ?>
