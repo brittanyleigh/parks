@@ -102,10 +102,12 @@
 				<span><i id="st" class="fa fa-lg fa-check-circle-o"></i> State Parks </span>
 				<span><i id="cty" class="fa fa-lg fa-check-circle-o"></i> City Parks </span>
 			</h4>
+			<?php if (isLoggedIn()): ?>
 			<h4>
 				<span><i id="visited" class="fa fa-lg fa-check-circle-o"></i> Visited </span>
 				<span><i id="unvisited" class="fa fa-lg fa-check-circle-o"></i> Unvisited </span>
 			</h4>
+			<?php endif ?>
 		</div>
 
 	</div>
