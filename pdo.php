@@ -15,26 +15,36 @@
 
 	function listParks($state){
 		global $pdo;
-		$parks = $pdo->prepare("SELECT * FROM parks WHERE state = :state");
+		$parks = $pdo->prepare("SELECT * FROM parks WHERE state = :state ORDER BY name");
 		$parks->bindValue(":state", $state, PDO::PARAM_STR);
 		$parks->execute();
 		$park_list = $parks->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($park_list as $row) {
 			$pk_id = $row["id"];
-			$pk_div = "<div class=\"park unvisited ";
+			$pk_url = $row["link"];
+			if (substr( $pk_url, 0, 4 ) !== "http"){
+				$pk_url = "http://" . $pk_url;
+			}
+
+
+
+			$pk_div = "<div class=\"park show-vis ";
 			$pk_div .= $row["type"];
-			$pk_div .= "-pk\" data-type=\"";
-			$pk_div .= $row["type"];
-			$pk_div .= "\" data-visited=\"unvisited\">";
+			$pk_div .= "-pk ";
 			if (isLoggedIn()){
-				$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
+				
 				if (checkVisit($pk_id)){
-					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";
 					$visit_val = "unvisit";
+					$pk_div .= "visited\">";
+					$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
+					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";					
 				}
 				else {
-					$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
 					$visit_val = "visit";
+					$pk_div .= "unvisited\">";
+					$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
+					$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
+					
 				}
 				$pk_div .= "<input type=\"hidden\" name=\"park\" value=\"";
 				$pk_div .= $pk_id;
@@ -43,8 +53,11 @@
 				$pk_div .= $visit_val;
 				$pk_div .= "\"></form>";
 			}
+			else {
+				$pk_div .= "\">";
+			}
 			$pk_div .= "<a target=\"_blank\" href=\""; 
-			$pk_div .= $row["link"];
+			$pk_div .= $pk_url;
 			$pk_div .= "\">";
 			$pk_div .= $row["name"];
 			$pk_div .= "</a>";
