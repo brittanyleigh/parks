@@ -4,17 +4,17 @@ $font-stack: 'Roboto Slab', serif;
 $dk-gray: #303030;
 $natl-color: #5d935f;
 $state-color: #b27c25;
-$city-color: #d36d56;	
+$city-color: #d36d56;
 $h4-size: 16px;
 
 * {
 	font-family: $font-stack;
 }
 body {
-	background-image: url('yosemite.jpg');
-	background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
+	background-image: url('subtle_grunge.png');
+	background-size: 500px;
+	background-repeat: repeat;
+  background-position: center top;
 }
 .list {
   display: flex;
@@ -27,18 +27,20 @@ body {
 }
 .state {
 	width: 200px;
-	margin: 15px;
-	background-color: rgba(255, 255, 255, 0.7);
-	border: solid 2px $natl-color;
+	//margin: 15px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: solid 2px #cccccc;
 	padding: 10px;
 	border-radius: 10px;
 	h3 {
 		text-transform: uppercase;
 		margin: 5px;
+		margin-left: 0px;
 	}
 	a {
 		text-decoration: none;
 		color: $dk-gray;
+    font-size: 14px;
 	}
 	a:visited {
 		color: $dk-gray;
@@ -80,6 +82,10 @@ body {
 	a:hover {
 		color: $color;
 	}
+}
+
+@mixin state-bg($state){
+	background: url('img/' + $state + '.jpg') center / cover;
 }
 .national-pk {
 	@include pk-colors($natl-color);
@@ -163,4 +169,157 @@ h4 {
 	color: $dk-gray;
 }
 
-
+.usa {
+	margin: 15px;
+	border-radius: 10px;
+}
+.al {
+	@include state-bg('al');
+}
+.ak {
+	@include state-bg('ak');
+}
+.ar {
+	@include state-bg('ar');
+}
+.az {
+	@include state-bg('az');
+}
+.ca {
+	@include state-bg('ca');
+}
+.co {
+	@include state-bg('co');
+}
+.ct {
+	@include state-bg('ct');
+}
+.de {
+	@include state-bg('de');
+}
+.fl {
+	@include state-bg('fl');
+}
+.ga {
+	@include state-bg('ga');
+}
+.hi {
+	@include state-bg('hi');
+}
+.id {
+	@include state-bg('id');
+}
+.il {
+	@include state-bg('il');
+}
+.in {
+	@include state-bg('in');
+}
+.ia {
+	@include state-bg('ia');
+}
+.ks {
+	@include state-bg('ks');
+}
+.ky {
+	@include state-bg('ky');
+}
+.la {
+	@include state-bg('la');
+}
+.me {
+	@include state-bg('me');
+}
+.md {
+	@include state-bg('md');
+}
+.ma {
+	@include state-bg('ma');
+}
+.mi {
+	@include state-bg('mi');
+}
+.mn {
+	@include state-bg('mn');
+}
+.ms {
+	@include state-bg('ms');
+}
+.mo {
+	@include state-bg('mo');
+}
+.mt {
+	@include state-bg('mt');
+}
+.ne {
+	@include state-bg('ne');
+}
+.nv {
+	@include state-bg('nv');
+}
+.nh {
+	@include state-bg('nh');
+}
+.nj {
+	@include state-bg('nj');
+}
+.nm {
+	@include state-bg('nm');
+}
+.ny {
+	@include state-bg('ny');
+}
+.nc {
+	@include state-bg('nc');
+}
+.nd {
+	@include state-bg('nd');
+}
+.oh {
+	@include state-bg('oh');
+}
+.ok {
+	@include state-bg('ok');
+}
+.or {
+	@include state-bg('or');
+}
+.pa {
+	@include state-bg('pa');
+}
+.ri {
+	@include state-bg('ri');
+}
+.sc {
+	@include state-bg('sc');
+}
+.sd {
+	@include state-bg('sd');
+}
+.tn {
+	@include state-bg('tn');
+}
+.tx {
+	@include state-bg('tx');
+}
+.ut {
+	@include state-bg('ut');
+}
+.vt {
+	@include state-bg('vt');
+}
+.va {
+	@include state-bg('va');
+}
+.wa {
+	@include state-bg('wa');
+}
+.wv {
+	@include state-bg('wv');
+}
+.wi {
+	@include state-bg('wv');
+}
+.wy {
+	@include state-bg('wy');
+}

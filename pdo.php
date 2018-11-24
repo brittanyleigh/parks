@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 	$server = $url["host"];
 	$username = $url["user"];
@@ -32,19 +32,19 @@
 			$pk_div .= $row["type"];
 			$pk_div .= "-pk ";
 			if (isLoggedIn()){
-				
+
 				if (checkVisit($pk_id)){
 					$visit_val = "unvisit";
 					$pk_div .= "visited\">";
 					$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
-					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";					
+					$pk_div .= "<i class=\"fa checkbox fa-check-circle-o\"></i> ";
 				}
 				else {
 					$visit_val = "visit";
 					$pk_div .= "unvisited\">";
 					$pk_div .= "<form id=\"visit\" method=\"post\" action=\"\">";
 					$pk_div .= "<i class=\"fa checkbox fa-circle-thin\"></i> ";
-					
+
 				}
 				$pk_div .= "<input type=\"hidden\" name=\"park\" value=\"";
 				$pk_div .= $pk_id;
@@ -56,7 +56,7 @@
 			else {
 				$pk_div .= "\">";
 			}
-			$pk_div .= "<a target=\"_blank\" href=\""; 
+			$pk_div .= "<a target=\"_blank\" href=\"";
 			$pk_div .= $pk_url;
 			$pk_div .= "\">";
 			$pk_div .= $row["name"];
@@ -78,7 +78,7 @@
 		    $stmt->bindParam(':username', htmlspecialchars($username));
 		    $stmt->bindParam(':password', $hash);
 			$stmt->execute();
-			$user_msg = "New user created, you can now login!"; 
+			$user_msg = "New user created, you can now login!";
 			return $user_msg;
 		}
 		else if (!checkUsername($username)){
@@ -141,7 +141,7 @@
 		$visit->bindValue(":id", $id);
 		$visit->execute();
 		$visit_list = $visit->fetchAll(PDO::FETCH_ASSOC);
-		return $visit_list[0];		
+		return $visit_list[0];
 	}
 
 	function addVisit($id){

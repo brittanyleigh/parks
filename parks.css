@@ -3,9 +3,9 @@
   font-family: "Roboto Slab", serif; }
 
 body {
-  background-image: url("yosemite.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url("subtle_grunge.png");
+  background-size: 500px;
+  background-repeat: repeat;
   background-position: center top; }
 
 .list {
@@ -19,17 +19,18 @@ body {
 
 .state {
   width: 200px;
-  margin: 15px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: solid 2px #5d935f;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: solid 2px #cccccc;
   padding: 10px;
   border-radius: 10px; }
   .state h3 {
     text-transform: uppercase;
-    margin: 5px; }
+    margin: 5px;
+    margin-left: 0px; }
   .state a {
     text-decoration: none;
-    color: #303030; }
+    color: #303030;
+    font-size: 14px; }
   .state a:visited {
     color: #303030; }
 
@@ -135,5 +136,159 @@ h4 {
 
 #visited, #unvisited {
   color: #303030; }
+
+.usa {
+  margin: 15px;
+  border-radius: 10px; }
+
+.al {
+  background: url("img/al.jpg") center/cover; }
+
+.ak {
+  background: url("img/ak.jpg") center/cover; }
+
+.ar {
+  background: url("img/ar.jpg") center/cover; }
+
+.az {
+  background: url("img/az.jpg") center/cover; }
+
+.ca {
+  background: url("img/ca.jpg") center/cover; }
+
+.co {
+  background: url("img/co.jpg") center/cover; }
+
+.ct {
+  background: url("img/ct.jpg") center/cover; }
+
+.de {
+  background: url("img/de.jpg") center/cover; }
+
+.fl {
+  background: url("img/fl.jpg") center/cover; }
+
+.ga {
+  background: url("img/ga.jpg") center/cover; }
+
+.hi {
+  background: url("img/hi.jpg") center/cover; }
+
+.id {
+  background: url("img/id.jpg") center/cover; }
+
+.il {
+  background: url("img/il.jpg") center/cover; }
+
+.in {
+  background: url("img/in.jpg") center/cover; }
+
+.ia {
+  background: url("img/ia.jpg") center/cover; }
+
+.ks {
+  background: url("img/ks.jpg") center/cover; }
+
+.ky {
+  background: url("img/ky.jpg") center/cover; }
+
+.la {
+  background: url("img/la.jpg") center/cover; }
+
+.me {
+  background: url("img/me.jpg") center/cover; }
+
+.md {
+  background: url("img/md.jpg") center/cover; }
+
+.ma {
+  background: url("img/ma.jpg") center/cover; }
+
+.mi {
+  background: url("img/mi.jpg") center/cover; }
+
+.mn {
+  background: url("img/mn.jpg") center/cover; }
+
+.ms {
+  background: url("img/ms.jpg") center/cover; }
+
+.mo {
+  background: url("img/mo.jpg") center/cover; }
+
+.mt {
+  background: url("img/mt.jpg") center/cover; }
+
+.ne {
+  background: url("img/ne.jpg") center/cover; }
+
+.nv {
+  background: url("img/nv.jpg") center/cover; }
+
+.nh {
+  background: url("img/nh.jpg") center/cover; }
+
+.nj {
+  background: url("img/nj.jpg") center/cover; }
+
+.nm {
+  background: url("img/nm.jpg") center/cover; }
+
+.ny {
+  background: url("img/ny.jpg") center/cover; }
+
+.nc {
+  background: url("img/nc.jpg") center/cover; }
+
+.nd {
+  background: url("img/nd.jpg") center/cover; }
+
+.oh {
+  background: url("img/oh.jpg") center/cover; }
+
+.ok {
+  background: url("img/ok.jpg") center/cover; }
+
+.or {
+  background: url("img/or.jpg") center/cover; }
+
+.pa {
+  background: url("img/pa.jpg") center/cover; }
+
+.ri {
+  background: url("img/ri.jpg") center/cover; }
+
+.sc {
+  background: url("img/sc.jpg") center/cover; }
+
+.sd {
+  background: url("img/sd.jpg") center/cover; }
+
+.tn {
+  background: url("img/tn.jpg") center/cover; }
+
+.tx {
+  background: url("img/tx.jpg") center/cover; }
+
+.ut {
+  background: url("img/ut.jpg") center/cover; }
+
+.vt {
+  background: url("img/vt.jpg") center/cover; }
+
+.va {
+  background: url("img/va.jpg") center/cover; }
+
+.wa {
+  background: url("img/wa.jpg") center/cover; }
+
+.wv {
+  background: url("img/wv.jpg") center/cover; }
+
+.wi {
+  background: url("img/wv.jpg") center/cover; }
+
+.wy {
+  background: url("img/wy.jpg") center/cover; }
 
 /*# sourceMappingURL=parks.css.map */
