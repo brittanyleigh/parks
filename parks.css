@@ -2,12 +2,6 @@
 * {
   font-family: "Roboto Slab", serif; }
 
-body {
-  background-image: url("img/naturalwhite.png");
-  background-size: 500px;
-  background-repeat: repeat;
-  background-position: center top; }
-
 .list {
   display: flex;
   justify-content: space-around;
